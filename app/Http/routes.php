@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::controllers([
+    'list' => 'ShoppingList\ShoppingListController',
+]);

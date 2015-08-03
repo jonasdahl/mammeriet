@@ -8,8 +8,7 @@
     </head>
     <body>
     	<div class="top-bar">
-    		<span>Inköpslistor</span>
-    		<a href="" class="button right action">{!! HTML::image('images/icons/create.png', '+') !!}</a>
+    		@yield('top-bar')
     	</div>
     	<div class="top-push"></div>
     	<div class="content">
