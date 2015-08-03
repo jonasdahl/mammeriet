@@ -60,8 +60,8 @@ h2 {
 	border: 0;
 }
 .top-bar span {
-	height: 20px;
-	padding: 15px;
+	height: 24px;
+	padding: 13px;
 	color: #fff;
 	display: block;
 	float: left;
@@ -81,6 +81,9 @@ ul.list li {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 3px;
 	list-style-type: none;
+}
+ul.list.nonlink li {
+	padding: 10px;
 }
 ul.list li a {
 	padding: 10px;

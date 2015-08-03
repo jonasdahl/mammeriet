@@ -7,7 +7,8 @@
 
 @section('content')
 	<ul class="list">
-		<li><a href="{{ url('lists/list', 1) }}">TTG <span>2015-08-16</span></a></li>
-		<li><a href="{{ url('lists/list', 2) }}">Arkitektgasque <span>2015-08-20</span></a></li>
+		@foreach($list->products()->get() as $product)
+			<li><a href="{{ url('lists/list', 1) }}">{{ $product->name }}</a></li>
+		@endforeach
 	</ul>
 @stop

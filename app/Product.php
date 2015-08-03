@@ -8,7 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class ShoppingList extends Model
+class Product extends Model
 {
 
     /**
@@ -16,21 +16,21 @@ class ShoppingList extends Model
      *
      * @var string
      */
-    protected $table = 'lists';
+    protected $table = 'products';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'quantity', 'unitprice'];
 
     /**
-     * All the products in the list.
+     * The list that this product belongs to.
      *
      * @return Relationship to products.
      */
-    public function products() {
-        return $this->hasMany('App\Product', 'list');
+    public function shoppingList() {
+        return $this->hasOne('App\ShoppingList', 'list');
     }
 }
