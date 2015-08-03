@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Hind';
+    src: url(../fonts/Hind/Hind-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Hind';
+    src: url(../fonts/Hind/Hind-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Hind';
+    src: url(../fonts/Hind/Hind-Regular.ttf);
+    font-weight: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #ddd;
+	font-size: 17px;
+	font-family: 'Hind', Arial;
+}
+
+h2 {
+	margin: 5px 0;
+	padding: 0;
+}
+
+.content {
+	padding: 10px;
+}
+
+.top-bar {
+	height: 50px;
+	background: #444;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.top-bar a.button {
+	float: left;
+	border-right: 1px solid #666;
+	width: 50px;
+	height: 50px;
+}
+.top-bar a.button.right {
+	float: right;
+	border-right: 0;
+	border-left: 1px solid #666;
+}
+.top-bar a.button.action {
+	background: #fb0;
+}
+.top-bar a.button img {
+	width: 20px;
+	height: 20px;
+	margin: 15px;
+	border: 0;
+}
+.top-bar span {
+	height: 20px;
+	padding: 15px;
+	color: #fff;
+	display: block;
+	float: left;
+}
+.top-push {
+	height: 50px;
+}
+
+ul.list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 -10px;
+}
+ul.list li {
+	background: #fff;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 3px;
+	list-style-type: none;
+}
+ul.list li a {
+	padding: 10px;
+	display: block;
+	color: #444;
+	text-decoration: none;
+}
+ul.list li a span {
+	float: right;
+	color: #777;
+}
