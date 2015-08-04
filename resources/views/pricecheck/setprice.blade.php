@@ -13,8 +13,8 @@
 		{!! Form::hidden('id') !!}
 		<ul class="list nonlink">
 			<li><b>Produktnamn:</b> {{ $pricecheck->productInfo->name }}</li>
-			<li><b>Ansvarig person:</b> {{ $pricecheck->responsiblePerson->name }}</li>
-			<li><b>Pris:</b> {!! Form::input('number', 'price') !!}</li>
+			<li><b>Ansvarig person:</b> {{ $pricecheck->responsibleperson }} ({{ $pricecheck->responsiblepersonemail }})</li>
+			<li class="input-wrapper">{!! Form::input('number', 'price', $pricecheck->unitprice, ['placeholder' => 'Pris']) !!}</li>
 		</ul>
 	{!! Form::close() !!}
 @stop

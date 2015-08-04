@@ -11,9 +11,18 @@
 @section('content')
 	{!! Form::open(['url' => url('pricecheck/new'), 'id' => 'form']) !!}
 		<ul class="list nonlink">
-			<li>Produktnamn: {!! Form::text('name') !!}</li>
-			<li>Ansvarig person: {!! Form::select('responsibleperson', App\User::htmlSelectAll()) !!}</li>
-			<li>Affär: {!! Form::select('shop', array(0 => 'Spelar ingen roll')) !!}</li>
+			<li class="input-wrapper">
+				{!! Form::text('name', NULL, ['placeholder' => 'Produktnamn', 'class' => 'thin']) !!}
+				<div class="clear"></div>
+			</li>
+			<li class="input-wrapper">
+				{!! Form::text('responsibleperson', NULL, ['placeholder' => 'Ditt namn', 'class' => 'thin']) !!}
+				<div class="clear"></div>
+			</li>
+			<li class="input-wrapper">
+				{!! Form::text('responsiblepersonemail', NULL, ['placeholder' => 'Din e-postadress', 'class' => 'thin']) !!}
+				<div class="clear"></div>
+			</li>
 		</ul>
 	{!! Form::close() !!}
 @stop

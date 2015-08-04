@@ -43,10 +43,12 @@ class PriceCheckController extends BaseController
         $product->save();
         $pricecheck = new PriceCheck;
         $pricecheck->product = $product->id;
+        $pricecheck->responsibleperson = $request->input('responsibleperson');
+        $pricecheck->responsiblepersonemail = $request->input('responsiblepersonemail');
         $pricecheck->save();
 
-        return redirect('/')
-            ->with('success', 'Mammeriet kommer nu kolla priset på denna vara!');
+        return redirect('pricecheck/new')
+            ->with('success', 'Du får ett mejl till ' . $request->input('responsiblepersonemail') . ' när vi checkat vad det kostar. Skriv in en ny vara om du vill!');
     }
 
     /**

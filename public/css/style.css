@@ -47,6 +47,12 @@ p.success {
 	margin: 0 0 10px;
 	padding: 10px;
 }
+.error {
+	border: 1px solid #a22;
+	background: #faa;
+	margin: 0 0 10px;
+	padding: 10px;
+}
 
 .content {
 	padding: 10px;
@@ -60,6 +66,25 @@ a.action {
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
+}
+input {
+	font-size: inherit;
+	font-family: inherit;
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 9px;
+	margin: 0 -10px;
+	display: block;
+	width: 100%;
+}
+input.action {
+	background: #E2007F;
+	margin: 5px 0;
+	width: 100%;
+	color: #fff;
+	font-weight: bold;
+	padding: 20px;
+	border: 0;
 }
 .top-bar {
 	height: 50px;
@@ -129,6 +154,9 @@ ul.list li {
 }
 ul.list.nonlink li {
 	padding: 10px;
+}
+ul.list.nonlink li.input-wrapper {
+	padding: 10px 20px;
 }
 ul.list li a {
 	padding: 10px 10px 10px 15px;
