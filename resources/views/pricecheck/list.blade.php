@@ -8,11 +8,15 @@
 
 @section('content')
 	<div class="section">
-		<ul class="list">
-			@foreach(App\PriceCheck::whereNull('unitprice')->whereNull('checked_at')->get() as $pricecheck)
-				<li><a href="{{ url('pricecheck/set-price', $pricecheck->id) }}">{{ $pricecheck->productInfo->name }} <span>Ange pris</span></a></li>
-			@endforeach
-		</ul>
+		@if (App\PriceCheck::whereNull('unitprice')->whereNull('checked_at')->count() > 0)
+			<ul class="list">
+				@foreach(App\PriceCheck::whereNull('unitprice')->whereNull('checked_at')->get() as $pricecheck)
+					<li><a href="{{ url('pricecheck/set-price', $pricecheck->id) }}">{{ $pricecheck->productInfo->name }} <span>Ange pris</span></a></li>
+				@endforeach
+			</ul>
+		@else
+			<p>Det finns inga fler varor som behöver priskollas! (Mammeriet äger!)</p>
+		@endif
 	</div>
 	<div class="section">
 		<h2>Redan kollade produkter</h2>

@@ -8,13 +8,15 @@
         @yield('head-extra')
     </head>
     <body>
-    	<div class="top-bar">
-    		@yield('top-bar')
-    	</div>
-    	<div class="top-push"></div>
-    	<div class="content">
-			@include('includes.messages')
-	        @yield('content')
-	    </div>
+        <div class="wrapper">
+        	<div class="top-bar">
+        		@yield('top-bar')
+        	</div>
+        	<div class="top-push"></div>
+        	<div class="content">
+    			@include('includes.messages')
+    	        @yield('content')
+    	    </div>
+        </div>
     </body>
 </html>
