@@ -13,6 +13,7 @@
     	</div>
     	<div class="top-push"></div>
     	<div class="content">
+			@include('includes.messages')
 	        @yield('content')
 	    </div>
     </body>

@@ -15,6 +15,5 @@
 			<li>Ansvarig person: {!! Form::select('responsibleperson', App\User::htmlSelectAll()) !!}</li>
 			<li>Affär: {!! Form::select('shop', array(0 => 'Spelar ingen roll')) !!}</li>
 		</ul>
-		{!! Form::submit('Skicka') !!}
 	{!! Form::close() !!}
 @stop

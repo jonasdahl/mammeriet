@@ -58,4 +58,31 @@ class PriceCheckController extends BaseController
     {
         return view('pricecheck.list');
     }
+
+    /**
+     * Set the price.
+     *
+     * @return Response, a view for setting the price.
+     */
+    public function getSetPrice($id) 
+    {
+        return view('pricecheck.setprice')
+            ->with('pricecheck', PriceCheck::find($id));
+    }
+
+    /**
+     * Set the price.
+     *
+     * @return Response, a view for setting the price.
+     */
+    public function postSetPrice(Request $request) 
+    {
+        /* TODO: Skicka mejl med pris till rätt person. */
+        $pricecheck = PriceCheck::find($request->input('id'));
+        $pricecheck->unitprice = $request->input('price');
+        $pricecheck->save();
+
+        return redirect('pricecheck/all')
+            ->with('success', 'Priset på ' . $pricecheck->productInfo->name . ' sattes till ' . $pricecheck->unitprice . ' kr.');
+    }
 }

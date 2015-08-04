@@ -6,8 +6,6 @@
 @stop
 
 @section('content')
-	@include('includes.messages')
-	
 	<div class="section">
 		<h2>Priskoll</h2>
 		<ul class="list">

@@ -26,4 +26,22 @@ class PriceCheck extends Model
     public function productInfo() {
         return $this->hasOne('App\Product', 'id', 'product');
     }
+
+    /**
+     * The person that is responsible for this.
+     *
+     * @return Relationship to person.
+     */
+    public function responsiblePerson() {
+        return $this->hasOne('App\User', 'id', 'responsibleperson');
+    }
+
+    /**
+     * The shop.
+     *
+     * @return Relationship to shop.
+     */
+    public function shopInfo() {
+        return $this->hasOne('App\Shop', 'id', 'shop');
+    }
 }
