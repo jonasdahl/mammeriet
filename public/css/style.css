@@ -21,7 +21,19 @@ body {
 	font-size: 17px;
 	font-family: 'Hind', Arial;
 }
+table {
+	width: 100%;
+}
+th {
+	text-align: left;
+}
+td {
+	text-align: right;
+}
 
+.clear {
+	clear: both;
+}
 .section {
 	margin-bottom: 20px;
 }
@@ -40,6 +52,15 @@ p.success {
 	padding: 10px;
 }
 
+a.action {
+	display: block;
+	background: #E2007F;
+	padding: 10px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+}
 .top-bar {
 	height: 50px;
 	background: #444;
@@ -53,6 +74,8 @@ p.success {
 	border-right: 1px solid #666;
 	width: 50px;
 	height: 50px;
+	z-index: 11;
+	position: relative;
 }
 .top-bar a.button.right {
 	float: right;
@@ -61,6 +84,7 @@ p.success {
 }
 .top-bar a.button.action {
 	background: #E2007F;
+	padding: 0;
 }
 .top-bar a.button img {
 	width: 20px;
@@ -68,12 +92,24 @@ p.success {
 	margin: 15px;
 	border: 0;
 }
+.top-bar a.button.logo {
+	background: #fff;
+}
+.top-bar a.button.logo img {
+	width: 34px;
+	height: 34px;
+	margin: 8px;
+}
 .top-bar span {
-	height: 24px;
-	padding: 13px;
+	height: 16px;
+	padding: 15px;
 	color: #fff;
 	display: block;
 	float: left;
+	position: absolute;
+	left: 45px;
+	z-index: 10;
+	overflow: hidden;
 }
 .top-push {
 	height: 50px;
@@ -95,13 +131,53 @@ ul.list.nonlink li {
 	padding: 10px;
 }
 ul.list li a {
-	padding: 10px;
+	padding: 10px 10px 10px 15px;
 	display: block;
 	color: #444;
 	text-decoration: none;
-	min-height: 25px;
+	min-height: 23px;
+}
+ul.list li a.done {
+	border-left: 10px solid #2a2;
+	padding-left: 5px;
 }
 ul.list li a span {
 	float: right;
 	color: #777;
+}
+ul.list li a span.info {
+	width: 50%;
+	float: right;
+}
+ul.list li a span.info span {
+	width: 40%;
+	float: left;
+	text-align: right;
+}
+ul.list li a span.info span.quantity {
+	width: 20%;
+}
+
+.more {
+	border-top: 1px solid #ccc;
+	display: none;
+}
+.more .button {
+	display: block;
+	width: 50px;
+	height: 50px;
+	float: left;
+	border: 0;
+	padding: 0;
+}
+.more .button img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+.more .button.check {
+	background: #2a2;
+}
+.more .button.bad {
+	background: #a00;
 }
