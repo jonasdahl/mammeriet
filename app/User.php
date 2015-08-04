@@ -32,4 +32,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public static function htmlSelectAll() {
+        $res = [];
+        foreach (User::orderBy('name')->get() as $u) {
+            $res[$u->id] = $u->name . ' (' . $u->email . ')';
+        }
+        return $res;
+    }
 }

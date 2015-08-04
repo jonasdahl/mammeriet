@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('top-bar')
+	<a href="{{ url('/') }}" class="button">{!! HTML::image('images/icons/back.png', '<') !!}</a>
 	<span>{{ $list->name }}</span>
 	<a href="{{ url('list/add-product', $list->id) }}" class="button right action">{!! HTML::image('images/icons/create.png', '+') !!}</a>
 @stop

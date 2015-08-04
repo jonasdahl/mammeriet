@@ -18,4 +18,5 @@ Route::get('/', function () {
 
 Route::controllers([
     'list' => 'ShoppingList\ShoppingListController',
+    'pricecheck' => 'PriceCheck\PriceCheckController',
 ]);
