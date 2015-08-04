@@ -141,7 +141,7 @@ ul.list li a.done {
 	border-left: 10px solid #2a2;
 	padding-left: 5px;
 }
-ul.list li a span {
+ul.list li span {
 	float: right;
 	color: #777;
 }
@@ -157,6 +157,19 @@ ul.list li a span.info span {
 ul.list li a span.info span.quantity {
 	width: 20%;
 }
+ul.list li.active {
+	color: #fff;
+	background: #E2007F;
+}
+ul.list li.active a {
+	color: #fff;
+}
+ul.list li span.name {
+	float: left;
+	width: 50%;
+}
+
+
 
 .more {
 	border-top: 1px solid #ccc;

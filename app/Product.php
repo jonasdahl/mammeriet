@@ -31,6 +31,6 @@ class Product extends Model
      * @return Relationship to products.
      */
     public function shoppingList() {
-        return $this->hasOne('App\ShoppingList', 'list');
+        return $this->hasOne('App\ShoppingList', 'id', 'list');
     }
 }

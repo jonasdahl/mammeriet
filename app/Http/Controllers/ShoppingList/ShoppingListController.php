@@ -64,4 +64,16 @@ class ShoppingListController extends BaseController
         return redirect('list/show/' . $list->id)
             ->with('success', 'Produkten lades till.');
     }
+
+    /**
+     * Shows list page.
+     *
+     * @param $id, the id of the list
+     * @return Response, a view for showing a specific list page.
+     */
+    public function getList($date) 
+    {
+        return view('shop.list')
+            ->with('data', $date);
+    }
 }
