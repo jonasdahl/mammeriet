@@ -3,6 +3,8 @@
 @section('top-bar')
 	<a href="{{ url('/') }}" class="button">{!! HTML::image('images/icons/back.png', '<') !!}</a>
 	<span>Inköpslista för {{ $date }}</span>
+	<a href="{{ url('shop/add-product', $date) }}" class="button right action">{!! HTML::image('images/icons/create.png', '+') !!}</a>
+	<a href="{{ url('shop/settings', $date) }}" class="button right">{!! HTML::image('images/icons/settings.png', '+') !!}</a>
 @stop
 
 @section('content')
@@ -31,7 +33,7 @@
 	@endforeach
 
 	<ul class="list">
-		@if ($num = App\PriceCheck::whereNull('checked_at')->count() > 0)
+		@if (($num = App\PriceCheck::whereNull('checked_at')->count()) > 0)
 			<li class="active">
 				<a href="{!! url('pricecheck/all') !!}">Kolla priser på {{ $num }} produkter.</a>
 			</li>
@@ -51,8 +53,8 @@
 					<a href="{{ url('shop/done-product', $product->id) }}" class="button check">
 						{!! HTML::image('images/icons/save.png', 'Klar') !!}
 					</a>
-					<a href="" class="button bad">
-						{!! HTML::image('images/icons/error.png', 'Finns ej') !!}
+					<a onclick="return confirm('Är du säker på att du vill ta bort denna produkt från alla listor? Den kan inte återskapas.');" href="{{ url('list/delete-product', $product->id) }}" class="button bad">
+						{!! HTML::image('images/icons/delete.png', 'Finns ej') !!}
 					</a>
 					<div class="clear"></div>
 				</div>

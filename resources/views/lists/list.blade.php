@@ -42,8 +42,8 @@
 					<a href="{{ url('shop/done-product', $product->id) }}" class="button check">
 						{!! HTML::image('images/icons/save.png', 'Klar') !!}
 					</a>
-					<a href="" class="button bad">
-						{!! HTML::image('images/icons/error.png', 'Finns ej') !!}
+					<a onclick="return confirm('Är du säker på att du vill ta bort denna produkt från alla listor? Den kan inte återskapas.');" href="{{ url('list/delete-product', $product->id) }}" class="button bad">
+						{!! HTML::image('images/icons/delete.png', 'Ta bort') !!}
 					</a>
 					<div class="clear"></div>
 				</div>

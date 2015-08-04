@@ -9,3 +9,9 @@
 		Felaktiga inloggningsuppgifter. Försök igen.
 	</p>
 @endif
+
+@if(Session::has('error'))
+	<p class="error">
+		{{ Session::get('error') }}
+	</p>
+@endif

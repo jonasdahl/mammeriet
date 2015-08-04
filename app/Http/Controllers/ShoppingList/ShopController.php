@@ -35,6 +35,31 @@ class ShopController extends BaseController
         return redirect('shop/list/' . date('Y-m-d'));
     }
 
+    public function getSettings($date) 
+    {
+        $activelists = [];
+        foreach(DB::table('daylist')->where('day', '=', $date)->get() as $r) {
+            $activelists[] = $r->list;
+        }
+        return view('shop.settings')
+            ->with('date', $date)
+            ->with('activelists', $activelists);
+    }
+
+    public function postSettings(Request $request) 
+    {
+        DB::table('daylist')->where('day', '=', $request->input('date'))->delete();
+        if ($request->has('lists')) {
+            foreach ($request->input('lists') as $list) {
+                DB::table('daylist')->insertGetId(
+                    array('day' => date('Y-m-d'), 'list' => $list)
+                );
+            }
+        }
+
+        return redirect('shop/list/' . date('Y-m-d'));
+    }
+
     /**
      * Shows list page.
      *
@@ -44,10 +69,13 @@ class ShopController extends BaseController
     public function getDoneProduct($id) 
     {
         $product = Product::find($id);
-        $product->status = 'done';
+        if ($product->status == 'done')
+            $product->status = NULL;
+        else
+            $product->status = 'done';
         $product->save();
 
-        return redirect('shop/list/' . date("Y-m-d"));
+        return redirect()->back();
     }
 
     /**
@@ -90,5 +118,31 @@ class ShopController extends BaseController
             ->with('date', $date)
             ->with('lists', $lists)
             ->with('products', $products);
+    }
+
+    public function getAddProduct($date) 
+    {
+        $res = DB::table('daylist')->join('lists', 'lists.id', '=', 'daylist.list')->where('day', '=', $date)->get();
+        $events = [0 => 'Lista att lägga till i'];
+        foreach ($res as $r) {
+            $events[$r->list] = $r->name;
+        }
+
+        return view('shop.addproduct')
+            ->with('date', $date)
+            ->with('events', $events);
+    }
+
+    public function postAddProduct(Request $request) 
+    {
+        $product = new Product;
+        $product->name = $request->input('name');
+        $product->quantity = $request->input('quantity');
+        $product->unitprice = $request->input('unitprice');
+        $product->list = $request->input('list');
+        $product->save();
+
+        return redirect('shop/list/' . $request->input('date'))
+            ->with('success', 'Produkten lades till.');
     }
 }

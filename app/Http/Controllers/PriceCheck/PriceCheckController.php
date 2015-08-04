@@ -82,6 +82,7 @@ class PriceCheckController extends BaseController
         /* TODO: Skicka mejl med pris till rätt person. */
         $pricecheck = PriceCheck::find($request->input('id'));
         $pricecheck->unitprice = $request->input('price');
+        $pricecheck->unit = $request->input('unit');
         $pricecheck->save();
 
         return redirect('pricecheck/all')

@@ -65,15 +65,28 @@ class ShoppingListController extends BaseController
             ->with('success', 'Produkten lades till.');
     }
 
-    /**
-     * Shows list page.
-     *
-     * @param $id, the id of the list
-     * @return Response, a view for showing a specific list page.
-     */
-    public function getList($date) 
+    public function getNew() 
     {
-        return view('shop.list')
-            ->with('data', $date);
+        return view('lists.new');
+    }
+
+    public function postNew(Request $request) 
+    {
+        $list = new ShoppingList;
+        $list->name = $request->input('name');
+        $list->eventdate = $request->input('eventdate');
+        $list->budget = $request->input('budget');
+        $list->save();
+
+        return redirect('list/show/' . $list->id)
+            ->with('success', 'Inköpslistan skapades!');
+    }
+
+    public function getDeleteProduct($id) 
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect()->back();
     }
 }

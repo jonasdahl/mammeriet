@@ -21,6 +21,7 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::controllers([
+    'user' => 'User\UserController',
     'list' => 'ShoppingList\ShoppingListController',
     'shop' => 'ShoppingList\ShopController',
     'pricecheck' => 'PriceCheck\PriceCheckController',

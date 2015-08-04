@@ -67,7 +67,22 @@ a.action {
 	text-decoration: none;
 	text-align: center;
 }
-input {
+a.action.small {
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	display: inline;
+	outline: none;
+	float: right;
+}
+a.action.small img {
+	width: 26px;
+	height: 26px;
+	margin: 8px;
+	outline: none;
+	border: 0;
+}
+input, textarea, select {
 	font-size: inherit;
 	font-family: inherit;
 	background: #eee;
@@ -76,6 +91,17 @@ input {
 	margin: 0 -10px;
 	display: block;
 	width: 100%;
+}
+input[type="checkbox"] {
+	display: inline;
+	margin: 0;
+	width: auto;
+}
+select {
+	margin: 0;
+}
+textarea {
+	height: 100px;
 }
 input.action {
 	background: #E2007F;
