@@ -40,6 +40,7 @@ class PriceCheckController extends BaseController
     {
         $product = new Product;
         $product->name = $request->input('name');
+        $product->description = $request->input('description');
         $product->save();
         $pricecheck = new PriceCheck;
         $pricecheck->product = $product->id;
@@ -79,13 +80,22 @@ class PriceCheckController extends BaseController
      */
     public function postSetPrice(Request $request) 
     {
-        /* TODO: Skicka mejl med pris till rätt person. */
         $pricecheck = PriceCheck::find($request->input('id'));
-        $pricecheck->unitprice = $request->input('price');
+        if ($request->input('moms') == 'yes') {
+            $pricecheck->unitprice = $request->input('price');
+        } else {
+            $pricecheck->unitprice = $request->input('price') * ($request->input('momssats') / 100 + 1);
+        }
         $pricecheck->unit = $request->input('unit');
         $pricecheck->save();
 
+        $name = $pricecheck->productInfo->name;
+
+        \Mail::send('emails.pricechecked', ['pricecheck' => $pricecheck], function($message) use ($pricecheck) {
+            $message->to($pricecheck->responsiblepersonemail, $pricecheck->responsibleperson)->subject('Mammeriet har kollat pris på en sak!');
+        });
+
         return redirect('pricecheck/all')
-            ->with('success', 'Priset på ' . $pricecheck->productInfo->name . ' sattes till ' . $pricecheck->unitprice . ' kr.');
+            ->with('success', 'Priset på ' . $pricecheck->productInfo->name . ' sattes till ' . $pricecheck->unitprice . ' kr och ett mejl skickades till ' . $pricecheck->responsiblepersonemail . '.');
     }
 }

@@ -94,7 +94,7 @@ input, textarea, select {
 	display: block;
 	width: 100%;
 }
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
 	display: inline;
 	margin: 0;
 	width: auto;
@@ -202,7 +202,7 @@ ul.list li span {
 	color: #777;
 }
 ul.list li a span.info {
-	width: 50%;
+	width: 40%;
 	float: right;
 }
 ul.list li a span.info span {
@@ -211,7 +211,10 @@ ul.list li a span.info span {
 	text-align: right;
 }
 ul.list li a span.info span.quantity {
-	width: 20%;
+	width: 40%;
+}
+ul.list li a span.info span.sum {
+	width: 60%;
 }
 ul.list li.active {
 	color: #fff;
@@ -222,9 +225,11 @@ ul.list li.active a {
 }
 ul.list li span.name {
 	float: left;
-	width: 50%;
+	width: 60%;
 }
-
+ul.list li .more span {
+	margin: 10px;
+}
 
 
 .more {
@@ -238,6 +243,7 @@ ul.list li span.name {
 	float: left;
 	border: 0;
 	padding: 0;
+	border-right: 1px solid #ccc;
 }
 .more .button img {
 	width: 30px;
@@ -248,7 +254,7 @@ ul.list li span.name {
 	background: #2a2;
 }
 .more .button.bad {
-	background: #a00;
+	background: #444;
 }
 input[type="submit"] {
 	background: #E2007F;
@@ -263,8 +269,25 @@ ul.list li span.label {
 	float: left;
 	width: auto;
 	margin-left: -10px;
+	color: #000;
 }
-
+ul.list li a span.info span.unitprice {
+	display: none;
+}
+span.label {
+	font-weight: bold;
+	color: #000;
+}
+.col {
+	width: 50%;
+	float: left;
+}
+.col.left .ic {
+	margin-right: 13px;
+}
+.col.right .ic {
+	margin-left: 13px;
+}
 
 
 @media all and (min-width: 600px) {
@@ -350,5 +373,24 @@ ul.list li span.label {
 	.small {
 		width: 400px;
 		margin: 0 auto;
+	}
+
+	ul.list li a span.info {
+		width: 40%;
+	}
+	ul.list li span.name {
+		width: 60%;
+	}
+	ul.list li a span.info span.unitprice {
+		display: inline-block;
+	}
+	ul.list li a span.info span.quantity {
+		width: 30%;
+	}
+	ul.list li a span.info span.unitprice {
+		width: 30%;
+	}
+	ul.list li a span.info span.sum {
+		width: 40%;
 	}
 }

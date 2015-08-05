@@ -43,9 +43,9 @@
 				<a href="" onclick="$('#more{{ $product->id }}').slideToggle(100);return false;"{!! $product->status == 'done' ? ' class="done"' : '' !!}>
 					<span class="name">{{ $product->name }} ({{ substr($product->shoppingList->name, 0, 3) }})</span>
 					<span class="info">
-						<span class="quantity">{{ round($product->quantity) }} á</span>
-						<span class="unitprice">{{ $product->unitprice }} kr</span>
-						<span class="sum">{{ $product->unitprice * $product->quantity }} kr</span>
+						<span class="quantity">{{ round($product->quantity, 2) }} st</span>
+						<span class="unitprice">{{ round($product->unitprice, 2) }} kr/st</span>
+						<span class="sum">{{ round($product->unitprice * $product->quantity, 2) }} kr</span>
 					</span>
 					<div class="clear"></div>
 				</a>
@@ -53,11 +53,19 @@
 					<a href="{{ url('shop/done-product', $product->id) }}" class="button check">
 						{!! HTML::image('images/icons/save.png', 'Klar') !!}
 					</a>
+					<a href="{{ url('list/edit-product', [$product->id, 'shop']) }}" class="button bad">
+						{!! HTML::image('images/icons/edit.png', 'Ändra') !!}
+					</a>
 					<a onclick="return confirm('Är du säker på att du vill ta bort denna produkt från alla listor? Den kan inte återskapas.');" href="{{ url('list/delete-product', $product->id) }}" class="button bad">
 						{!! HTML::image('images/icons/delete.png', 'Finns ej') !!}
 					</a>
+					<span>
+						{{ round($product->unitprice, 2) }} kr/st ink moms, <br> 
+						{{ round($product->unitprice / (($product->moms + 100) / 100), 2) }} kr/st ex moms
+					</span>
 					<div class="clear"></div>
 				</div>
+				<div class="clear"></div>
 			</li>
 		@endforeach
 	</ul>

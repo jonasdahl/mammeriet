@@ -39,9 +39,10 @@ class ShoppingListController extends BaseController
      * @param $id, the id of the list
      * @return Response, a view for showing a specific list page.
      */
-    public function getAddProduct($id) 
+    public function getAddProduct($id, $stay = false) 
     {
         return view('lists.addproduct')
+            ->with('stay', $stay)
             ->with('list', ShoppingList::find($id));
     }
 
@@ -58,11 +59,50 @@ class ShoppingListController extends BaseController
         $product->name = $request->input('name');
         $product->quantity = $request->input('quantity');
         $product->unitprice = $request->input('unitprice');
+        $product->moms = $request->input('moms');
         $product->list = $list->id;
         $product->save();
 
+        if ($request->has('stay') && $request->input('stay') == 'yes') {
+            return redirect('list/add-product/' . $list->id . '/stay')
+                ->with('success', 'Produkten lades till.');
+        }
         return redirect('list/show/' . $list->id)
             ->with('success', 'Produkten lades till.');
+    }
+
+    public function getEditProduct($id, $back = 'list') 
+    {
+        $res = ShoppingList::orderBy('eventdate')->get();
+        foreach ($res as $r) {
+            $events[$r->id] = $r->name . ' (' . date("Y-m-d", strtotime($r->eventdate)) . ')';
+        }
+
+        $product = Product::find($id);
+        return view('lists.editproduct')
+            ->with('events', $events)
+            ->with('product', $product)
+            ->with('back', $back)
+            ->with('list', $product->shoppingList);
+    }
+
+    public function postEditProduct(Request $request) 
+    {
+        $product = Product::find($request->input('id'));
+        $product->name = $request->input('name');
+        $product->moms = $request->input('moms');
+        $product->quantity = $request->input('quantity');
+        $product->unitprice = $request->input('unitprice');
+        $product->list = $request->input('list');
+        $product->save();
+
+        if ($request->input('back') == 'list') {
+            return redirect('list/show/' . $product->list)
+                ->with('success', 'Produkten ändrades.');
+        } else {
+            return redirect('shop/list/' . date("Y-m-d"))
+                ->with('success', 'Produkten ändrades.');
+        }
     }
 
     public function getNew() 

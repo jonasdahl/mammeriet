@@ -5,6 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         {!! HTML::style('css/style.css') !!}
         {!! HTML::script('js/jquery.js') !!}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("input[type='number']").click(function () {
+                   $(this).select();
+                });
+            });
+        </script>
         @yield('head-extra')
     </head>
     <body>

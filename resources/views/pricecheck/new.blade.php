@@ -16,6 +16,10 @@
 				<div class="clear"></div>
 			</li>
 			<li class="input-wrapper">
+				{!! Form::textarea('description', NULL, ['placeholder' => 'Beskrivning av produkten, om något är oklart', 'class' => 'thin']) !!}
+				<div class="clear"></div>
+			</li>
+			<li class="input-wrapper">
 				{!! Form::text('responsibleperson', NULL, ['placeholder' => 'Ditt namn', 'class' => 'thin']) !!}
 				<div class="clear"></div>
 			</li>

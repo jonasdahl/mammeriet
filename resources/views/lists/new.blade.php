@@ -15,7 +15,7 @@
 @section('top-bar')
 	<a href="javascript:history.go(-1)" class="button">{!! HTML::image('images/icons/back.png', '<') !!}</a>
 	<span>Skapa ny inköpslista</span>
-	<a href="" onclick="$('#form').submit();return false;" class="button right action">
+	<a href="" onclick="$('#form').submit();return false;" class="button right action save">
 		{!! HTML::image('images/icons/save.png', 'Spara') !!}
 	</a>
 @stop
@@ -36,5 +36,6 @@
 				<div class="clear"></div>
 			</li>
 		</ul>
+		{!! Form::submit('Lägg till') !!}
 	{!! Form::close() !!}
 @stop

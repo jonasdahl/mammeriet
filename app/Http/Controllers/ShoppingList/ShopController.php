@@ -120,16 +120,16 @@ class ShopController extends BaseController
             ->with('products', $products);
     }
 
-    public function getAddProduct($date) 
+    public function getAddProduct($date, $stay = false) 
     {
         $res = DB::table('daylist')->join('lists', 'lists.id', '=', 'daylist.list')->where('day', '=', $date)->get();
-        $events = [0 => 'Lista att lägga till i'];
         foreach ($res as $r) {
             $events[$r->list] = $r->name;
         }
 
         return view('shop.addproduct')
             ->with('date', $date)
+            ->with('stay', $stay)
             ->with('events', $events);
     }
 
@@ -140,7 +140,13 @@ class ShopController extends BaseController
         $product->quantity = $request->input('quantity');
         $product->unitprice = $request->input('unitprice');
         $product->list = $request->input('list');
+        $product->moms = $request->input('moms');
         $product->save();
+
+        if ($request->has('stay') && $request->input('stay') == 'yes') {
+            return redirect('shop/add-product/' . $request->input('date') . '/stay')
+                ->with('success', 'Produkten lades till.');
+        }
 
         return redirect('shop/list/' . $request->input('date'))
             ->with('success', 'Produkten lades till.');
