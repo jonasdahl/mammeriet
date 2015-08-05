@@ -3,7 +3,7 @@
 @section('top-bar')
 	<a href="{{ url('/') }}" class="button">{!! HTML::image('images/icons/back.png', '<') !!}</a>
 	<span>Lägg till produkt att priskolla</span>
-	<a href="" onclick="$('#form').submit();return false;" class="button right action">
+	<a href="" onclick="$('#form').submit();return false;" class="button right action save">
 		{!! HTML::image('images/icons/save.png', 'Spara') !!}
 	</a>
 @stop
@@ -24,5 +24,6 @@
 				<div class="clear"></div>
 			</li>
 		</ul>
+		{!! Form::submit('Skicka in') !!}
 	{!! Form::close() !!}
 @stop

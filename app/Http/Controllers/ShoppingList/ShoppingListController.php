@@ -89,4 +89,24 @@ class ShoppingListController extends BaseController
 
         return redirect()->back();
     }
+
+    public function getSettings($id) 
+    {
+        $list = ShoppingList::find($id);
+
+        return view('lists.settings')
+            ->with('list', $list);
+    }
+
+    public function postSettings(Request $request) 
+    {
+        $list = ShoppingList::find($request->input('id'));
+        $list->budget = $request->input('budget');
+        $list->name = $request->input('name');
+        $list->eventdate = $request->input('eventdate');
+        $list->save();
+
+        return redirect('list/show/' . $list->id)
+            ->with('success', 'Listan uppdaterades.');
+    }
 }

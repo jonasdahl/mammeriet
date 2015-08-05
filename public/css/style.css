@@ -44,14 +44,16 @@ h2 {
 p.success {
 	border: 1px solid #2a2;
 	background: #afa;
-	margin: 0 0 10px;
+	margin: 0 auto 10px;
 	padding: 10px;
+	max-width: 900px;
 }
 .error {
 	border: 1px solid #a22;
 	background: #faa;
 	margin: 0 0 10px;
 	padding: 10px;
+	max-width: 900px;
 }
 
 .content {
@@ -247,4 +249,104 @@ ul.list li span.name {
 }
 .more .button.bad {
 	background: #a00;
+}
+input[type="submit"] {
+	background: #E2007F;
+	color: #fff;
+	display: none;
+	margin: 0 auto;
+}
+input[type="submit"].display {
+	display: block;
+}
+ul.list li span.label {
+	float: left;
+	width: auto;
+	margin-left: -10px;
+}
+
+
+
+@media all and (min-width: 600px) {
+	.top-bar {
+		height: 70px;
+	}
+	.inner {
+		max-width: 900px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.top-bar span {
+		font-size: 1.6em;
+		left: 80px;
+		height: 30px;
+	}
+	.top-bar a.button {
+		width: 70px;
+		height: 70px;
+		border-left: 1px solid #666;
+	}
+	.top-bar a.button.right {
+		border-right: 1px solid #666;
+	}
+	.top-bar a.button img {
+		width: 40px;
+		height: 40px;
+		margin: 15px;
+	}
+	.top-bar a.button.logo img {
+		width: 50px;
+		height: 50px;
+		margin: 10px;
+	}
+	.top-bar a.save {
+		display: none;
+	}
+	.top-push {
+		height: 70px;
+	}
+
+	a.action {
+		width: 400px;
+		font-size: 1.2em;
+		margin: 0 auto;
+	}
+	ul.list {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	ul.list.shopping {
+		max-width: none;
+	}
+	input[type="submit"] {
+		width: 400px;
+		margin: 0 auto;
+		display: block;
+	}
+	.first-page {
+		margin: 0 auto;
+	}
+	.first-page ul.list {
+		max-width: none;
+	}
+	.first-page .section {
+		float: left;
+		width: 30%;
+		margin: 0 1.5%;
+	}
+	.first-page .section.shopping {
+		display: block;
+		margin: 0 -8px 30px;
+		float: none;
+		width: 100%;
+		padding: 30px 15px 30px 0;
+		border-bottom: 5px solid #ccc;
+	}
+	.first-page .section.shopping a.action {
+		font-size: 2em;
+	}
+	.small {
+		width: 400px;
+		margin: 0 auto;
+	}
 }

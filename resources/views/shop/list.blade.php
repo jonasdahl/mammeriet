@@ -32,7 +32,7 @@
 		</table>
 	@endforeach
 
-	<ul class="list">
+	<ul class="list shopping">
 		@if (($num = App\PriceCheck::whereNull('checked_at')->count()) > 0)
 			<li class="active">
 				<a href="{!! url('pricecheck/all') !!}">Kolla priser på {{ $num }} produkter.</a>

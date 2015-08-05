@@ -13,7 +13,7 @@
 				<li class="input-wrapper">{!! Form::email('email', NULL, ['placeholder' => 'Användarnamn']) !!}</li>
 				<li class="input-wrapper">{!! Form::password('password', ['placeholder' => 'Lösenord']) !!}</li>
 			</ul>
-			{!! Form::submit('Logga in', ['class' => 'action']) !!}
+			{!! Form::submit('Logga in', ['class' => 'display']) !!}
 		</div>
 	{!! Form::close() !!}
 @stop

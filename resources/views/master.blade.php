@@ -10,12 +10,16 @@
     <body>
         <div class="wrapper">
         	<div class="top-bar">
-        		@yield('top-bar')
+                <div class="inner">
+        		    @yield('top-bar')
+                </div>
         	</div>
         	<div class="top-push"></div>
         	<div class="content">
-    			@include('includes.messages')
-    	        @yield('content')
+                <div class="inner">
+        			@include('includes.messages')
+        	        @yield('content')
+                </div>
     	    </div>
         </div>
     </body>
