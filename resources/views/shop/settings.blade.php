@@ -31,7 +31,7 @@
 @section('top-bar')
 	<a href="{{ url('/') }}" class="button">{!! HTML::image('images/icons/back.png', '<') !!}</a>
 	<span>Inställningar för listan {{ $date }}</span>
-	<a href="" class="button right action" id="continue" onclick="$('#form').submit();return false;">
+	<a href="" class="button right action save" id="continue" onclick="$('#form').submit();return false;">
 		{!! HTML::image('images/icons/save.png', 'Spara') !!}
 	</a>
 @stop
@@ -48,5 +48,6 @@
 				</li>
 			@endforeach
 		</ul>
+		{!! Form::submit('Spara') !!}
 	{!! Form::close() !!}
 @stop

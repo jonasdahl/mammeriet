@@ -270,11 +270,13 @@ ul.list li span.label {
 @media all and (min-width: 600px) {
 	.top-bar {
 		height: 70px;
+		z-index: 6;
 	}
 	.inner {
 		max-width: 900px;
 		margin: 0 auto;
 		position: relative;
+		z-index: 5;
 	}
 	.top-bar span {
 		font-size: 1.6em;
