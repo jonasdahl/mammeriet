@@ -394,3 +394,11 @@ span.label {
 		width: 40%;
 	}
 }
+
+span.u {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: auto !important;
+	float: none !important;
+	text-align: left !important;
+}

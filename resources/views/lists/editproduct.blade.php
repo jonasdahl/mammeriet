@@ -42,7 +42,7 @@
 		{!! Form::hidden('id', $product->id) !!}
 		{!! Form::hidden('back', $back) !!}
 		<ul class="list nonlink">
-			<li><b>Lista:</b>{!! Form::select('list', $events, NULL) !!}</li>
+			<li><b>Lista:</b>{!! Form::select('list', $events, $list->id) !!}</li>
 			<li class="input-wrapper">
 				<span class="label">Produktnamn:</span>
 				{!! Form::text('name', $product->name, ['placeholder' => 'Produktnamn']) !!}

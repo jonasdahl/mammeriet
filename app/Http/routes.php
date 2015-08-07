@@ -21,6 +21,10 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::controllers([
+    'api/product' => 'Api\ProductApiController',
+    'api/list' => 'Api\ListApiController',
+    'api/shop' => 'Api\ShopApiController',
+    'api' => 'Api\ApiController',
     'user' => 'User\UserController',
     'list' => 'ShoppingList\ShoppingListController',
     'shop' => 'ShoppingList\ShopController',
