@@ -21,7 +21,7 @@ class UserController extends BaseController
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth', ['except' => []]);
     }
 
     public function getNew() 

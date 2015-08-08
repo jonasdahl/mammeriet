@@ -25,6 +25,8 @@
 				$('#unitprice').val(Math.round(100 * $('#unitpricenomoms').val() * (parseInt($("#moms").val())+100)/100) / 100);
 				calculate();
 			});
+
+			$('#name').focus();
 		});
 	</script>
 @stop
@@ -43,7 +45,7 @@
 		<ul class="list nonlink">
 			<li class="input-wrapper">
 				<span class="label">Produktnamn:</span>
-				{!! Form::text('name', null, ['placeholder' => 'Produktnamn']) !!}
+				{!! Form::text('name', null, ['placeholder' => 'Produktnamn', 'id' => 'name']) !!}
 			</li>
 			<li class="input-wrapper">
 				<span class="label">Antal:</span>

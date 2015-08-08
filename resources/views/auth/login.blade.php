@@ -12,6 +12,7 @@
 			<ul class="list nonlink">
 				<li class="input-wrapper">{!! Form::email('email', NULL, ['placeholder' => 'Användarnamn']) !!}</li>
 				<li class="input-wrapper">{!! Form::password('password', ['placeholder' => 'Lösenord']) !!}</li>
+				<li><label>{!! Form::checkbox('remember') !!} Kom ihåg mig</label></li>
 			</ul>
 			{!! Form::submit('Logga in', ['class' => 'display']) !!}
 		</div>
